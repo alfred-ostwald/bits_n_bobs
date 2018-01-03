@@ -28,5 +28,21 @@
   $zip->close();
   return file_exists($outfile);
 }
+
+function print_to_log($whattoprint){
+  /*
+    again just a simple function to print stuff to a log_file,
+    with a timestamp
+    
+    change to path in $log_file to something more appropriate,
+    if it doesn't work check your permissions!
+  */
+	
+  date_default_timezone_set('Europe/London');
+  $log_file = '/some/path/to/directory/php_log.txt';
+  $timestamp = date("d-m-Y H:i:s")." ";
+  file_put_contents($log_file,$timestamp.$whattoprint."\r\n",FILE_APPEND);
+
+}
  
 ?>
